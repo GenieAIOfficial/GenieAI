@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background-image: url('https://source.unsplash.com/1600x900/?technology');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(3, 3, 13, 0.7);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0px 0px 20px rgba(16, 0, 161, 0.7);
+            text-align: center;
+        }
+
+        .box h2 {
+            color: #fff;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .box form {
+            margin-bottom: 20px;
+        }
+
+        .box label {
+            color: #aaa;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .box input {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            width: calc(100% - 24px);
+            margin-bottom: 20px;
+        }
+
+        .box button {
+            background: linear-gradient(45deg, #0066cc, #003399);
+            border: none;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .box button:hover {
+            background: linear-gradient(45deg, #0047b3, #002966);
+        }
+
+        .box .text-center p {
+            color: #aaa;
+            margin-top: 20px;
+        }
+
+        .box .text-center a {
+            color: #00f;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h2>Ultimate Plan - Payment</h2>
+            <p>Monthly: $19.99 | Yearly: $199.99</p>
+            <form action="payment-success.html" method="POST">
+                <label for="name">Name on Card</label>
+                <input type="text" id="name" name="name" required>
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" name="card-number" required>
+                <label for="expiry">Expiry Date</label>
+                <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" required>
+                <button type="submit">Subscribe Now</button>
+            </form>
+            <div class="text-center">
+                <p>Already have an account? <a href="index.html">Go to Home</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

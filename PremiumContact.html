@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            background-color: #000;
+            color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #111;
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+        }
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ddd !important;
+        }
+        .contact-section {
+            background-color: #111;
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/contact-bg.jpg') no-repeat center center/cover;
+            filter: brightness(50%);
+            z-index: -1;
+        }
+        .contact-section h2 {
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+        .contact-section p {
+            color: #ddd;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        .contact-info .box {
+            background-color: #222;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            color: #fff;
+        }
+        .contact-info .box:hover {
+            transform: scale(1.05);
+        }
+        .contact-info .icon {
+            color: #007bff;
+            font-size: 24px;
+        }
+        .contact-form {
+            background-color: #222;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            animation: fadeInUp 2s ease-out;
+        }
+        .contact-form .form-group input, .contact-form .form-group textarea {
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-color: #333;
+            color: #f1f1f1;
+            border: 1px solid #444;
+        }
+        .contact-form .btn {
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 8px;
+        }
+        .contact-form .btn:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .footer a {
+            color: #007bff;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .map-container {
+            height: 400px;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .contact-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .contact-row > div {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .contact-row > div:last-child {
+            margin-right: 0;
+        }
+        .contact-details {
+            margin-top: 20px;
+        }
+        .contact-details h3 {
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .contact-details p {
+            margin: 0;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="PremiumIndex.html">GENIE</a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                    <li class="nav-item"><a href="PremiumIndex.html" class="nav-link"><span>Home</span></a></li>
+                    <li class="nav-item"><a href="PremiumAbout.html" class="nav-link"><span>About</span></a></li>
+                    <li class="nav-item"><a href="PremiumSubscription.html" class="nav-link"><span>Subscription</span></a></li>
+                    <li class="nav-item"><a href="PremiumChatbot.html" class="nav-link"><span>Chatbots</span></a></li>
+                    <li class="nav-item"><a href="Fun.html" class="nav-link"><span>Fun & Games</span></a></li>
+                    <li class="nav-item"><a href="PremiumContact.html" class="nav-link"><span>Contact</span></a></li>
+                    <li class="nav-item"><a href="PremiumDashboard.html" class="nav-link"><span>Dashboard</span></a></li>
+                </ul>
+              </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="ftco-section contact-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section text-center">
+                    <h2>Contact Us</h2>
+                    <p>We’d love to hear from you! Fill out the form below to get in touch with us.</p>
+                </div>
+            </div>
+            <div class="row contact-row">
+                <!-- Map Container -->
+                <div class="col-md-5">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2376.547590683883!2d31.0665488!3d-29.7219782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef7a9c8078e80c7%3A0xa6dd29e49ed80383!2sRichfield%20Umhlanga%20Campus!5e0!3m2!1sen!2sza!4v1694189164910!5m2!1sen!2sza" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Contact Details</h3>
+                        <p><strong>Phone:</strong> +27 730581227</p>
+                        <p><strong>Website:</strong> <a href="PremiumIndex.html" target="_blank">genieaicontact@gmail.com</a></p>
+                    </div>
+                </div>
+                <!-- Contact Form -->
+                <div class="col-md-7">
+                    <form action="send_email.php" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 GENIE. All rights reserved. <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

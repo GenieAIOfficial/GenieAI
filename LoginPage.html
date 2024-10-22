@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-messaging-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics-compat.js"></script>
+</head>
+
+<body style="background-image: url('https://source.unsplash.com/1600x900/?technology'); background-size: cover; background-position: center; color: #fff; height: 100vh; display: flex; justify-content: center; align-items: center; font-family: 'Poppins', sans-serif;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">GENIE</a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                  <li class="nav-item"><a href="index.html" class="nav-link"><span>Home</span></a></li>
+                  <li class="nav-item"><a href="LoginPage.html" class="nav-link"><span>Login</span></a></li>
+                  <li class="nav-item"><a href="Signup.html" class="nav-link"><span>SignUp</span></a></li>
+                  <li class="nav-item"><a href="about.html" class="nav-link"><span>About</span></a></li>
+                  <li class="nav-item"><a href="Subscription.html" class="nav-link"><span>Subscription</span></a></li>
+                  <li class="nav-item"><a href="Chatbots.html" class="nav-link"><span>Chatbots</span></a></li>
+                  <li class="nav-item"><a href="Contact.html" class="nav-link"><span>Contact</span></a></li>
+                </ul>
+              </div>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <style>
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            margin-top: 80px;
+            padding: 40px;
+            background: rgb(44, 43, 43);
+            border-radius: 20px;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgb(85, 91, 81);
+            border-radius: 50%;
+            filter: blur(50px);
+            z-index: -1;
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgb(0, 0, 0);
+            border-radius: 50%;
+            filter: blur(50px);
+            z-index: -1;
+        }
+    </style>
+
+    <div style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 20px; margin-top: 100px;">
+        <!-- Login Form -->
+        <div style="width: 400px; padding: 40px; background: rgba(3, 3, 13, 0.7); border-radius: 15px; box-shadow: 0px 0px 20px rgba(16, 0, 161, 0.7); animation: fadeIn 1.5s ease;">
+            <h2 class="text-center" style="color: #fff; margin-bottom: 30px; font-weight: 600;">Login</h2>
+
+            <!-- Social Media Login -->
+            <div style="margin-bottom: 20px;">
+              <!--  <button style="width: 100%; background: linear-gradient(45deg, #3b5998, #192f6a); color: #fff; padding: 10px; border: none; border-radius: 5px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center;">
+                    <i class="icon-facebook" style="margin-right: 8px;"></i> Login with Facebook
+                </button>-->
+                <button style="width: 100%; background: linear-gradient(45deg, #db4437, #c23321); color: #fff; padding: 10px; border: none; border-radius: 5px; display: flex; align-items: center; justify-content: center;" id="loginWithGoogleBtn">
+                    <i class="icon-google" style="margin-right: 8px;"></i> Login with Google
+                </button>
+            </div>
+
+            <hr style="border-color: #555;">
+
+            <!-- Login Form -->
+            <form id="login-form">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label for="email" style="color: #aaa;">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" style="background-color: rgba(255, 255, 255, 0.1); color: #fff; border: none; padding: 12px; border-radius: 5px;" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label for="password" style="color: #aaa;">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password" style="background-color: rgba(255, 255, 255, 0.1); color: #fff; border: none; padding: 12px; border-radius: 5px;" required>
+                </div>
+                <div class="form-group d-flex justify-content-between" style="margin-bottom: 20px;">
+                    <div>
+                        <input type="checkbox" id="togglePassword" style="margin-top: 10px;"> <label for="togglePassword" style="color: #aaa;">Show Password</label>
+                       <script>                
+                        // Toggle password visibility
+                        const togglePassword = document.getElementById('togglePassword');
+                        const password = document.getElementById('password');
+                
+                        togglePassword.addEventListener('change', function () {
+                            if (password.type === "password") {
+                                password.type = "text";
+                            } else {
+                                password.type = "password";
+                            }
+                        });</script>
+
+                    </div>
+                    <a href="ForgotPassword.html" style="color: #00f; text-decoration: none;">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" style="background: linear-gradient(45deg, #0066cc, #003399); border: none; padding: 12px; border-radius: 5px; transition: background 0.3s;">
+                    Login
+                </button>
+            </form>
+
+            <div id="message" style="margin-top: 20px; color: #fff;"></div>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <p style="color: #aaa;">Don't have an account? <a href="Signup.html" style="color: #00f; text-decoration: none;">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fade In Animation -->
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Button Hover Effects */
+        button:hover {
+            background: linear-gradient(45deg, #0047b3, #002966);
+            transition: background 0.3s;
+        }
+
+        button:hover i {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+        }
+    </style>
+
+    <script type="module">
+         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+
+        document.getElementById('login-form').addEventListener('submit', async function (e) {
+
+            e.preventDefault(); // Prevent the default form submission
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const messageDiv = document.getElementById('message');
+
+            const response = await fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const data = await response.json();
+
+            if (response.status === 200) {
+                //Save token in local storage
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('isPremium', data.isPremiumUser);
+                localStorage.setItem('name', data.name);
+
+                //Show success message
+                messageDiv.innerHTML = `<span style="color: #00ff00;">Login successful.</span>`;
+                 // JavaScript for redirect after a delay
+                  setTimeout(function () {
+                    
+                   if(data.isPremiumUser === true){
+                    // alert("you are a premium user so redirecting to premiumIndex")
+                    window.location.href = 'PremiumIndex.html';
+                   } else {
+                    // alert("you are not a premium user so redirecting to loginIndex")
+                    window.location.href = 'loginIndex.html';
+                   }
+                 }, 1000); // 1 seconds delay
+               
+            } else if (response.status === 401) {
+                //Show error message
+                messageDiv.innerHTML = `<span style="color: #ff0000;">Invalid email or password. Please try again.</span>`;
+            } else {
+                //Show error message
+                messageDiv.innerHTML = `<span style="color: #ff0000;">An error occurred. Please try again later.</span>`; 
+            }
+        });
+                const firebaseConfig = {
+            apiKey: "AIzaSyBl-7qMH7vyo2DKCVrtCbgk0P2vtfES9A4",
+            authDomain: "genieai-3882a.firebaseapp.com",
+            projectId: "genieai-3882a",
+            storageBucket: "genieai-3882a.appspot.com",
+            messagingSenderId: "890456197661",
+            appId: "1:890456197661:web:ecfa4e49103bcbf63114f4",
+            measurementId: "G-K4E2TREPDH"
+        };
+
+       // Initialize Firebase Auth App 
+    const authApp=firebase.initializeApp(firebaseConfig);
+    
+
+        let loginWithGoogleBtn = document.getElementById('loginWithGoogleBtn');
+        loginWithGoogleBtn.addEventListener("click", function(event){
+            event.preventDefault();
+            const auth = firebase.auth(authApp);
+            const provider = new firebase.auth.GoogleAuthProvider();
+
+            const messageDiv = document.getElementById('message');
+
+
+            auth.signInWithPopup(provider).then(async (result)=>{
+                const user = result.user;
+                var email = user.email;
+                var name = user.displayName.split(" ")[0];
+                console.log(user);
+
+                const response = await fetch('http://localhost:3000/googleLogin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+               });
+
+               
+            const data = await response.json();
+
+            if (response.status === 200) {
+                //Save token in local storage
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('isPremium', data.isPremiumUser);
+                localStorage.setItem('name', data.name);
+
+                //Show success message
+                messageDiv.innerHTML = `<span style="color: #00ff00;">Login successful.</span>`;
+                // JavaScript for redirect after a delay
+                setTimeout(function () {
+                    
+                if(data.isPremiumUser === true){
+                    // alert("you are a premium user so redirecting to premiumIndex")
+                    window.location.href = 'PremiumIndex.html';
+                } else {
+                    // alert("you are not a premium user so redirecting to loginIndex")
+                    window.location.href = 'loginIndex.html';
+                }
+                }, 1000); // 1 seconds delay
+            
+            } else if (response.status === 401) {
+                //Show error message
+                messageDiv.innerHTML = `<span style="color: #ff0000;">This email is not registered. Please sign up.</span>`;
+            } else {
+                //Show error message
+                messageDiv.innerHTML = `<span style="color: #ff0000;">An error occurred. Please try again later.</span>`; 
+            }
+
+
+                
+            }).catch((error)=>{
+                console.log(error);
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>

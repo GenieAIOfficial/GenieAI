@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spider-Man Chatbot</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('images/spiderman-bg.jpg'); /* Spider-Man cityscape background */
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        .web-effect {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: url('images/spider-web.png') no-repeat center center;
+            background-size: contain;
+            animation: swing 5s infinite ease-in-out;
+        }
+
+        .web-effect:nth-child(2) {
+            top: 20%;
+            left: 10%;
+        }
+
+        .web-effect:nth-child(3) {
+            top: 70%;
+            left: 80%;
+        }
+
+        @keyframes swing {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(15deg);
+            }
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: #ff4500; /* Spider-Man red */
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navbar-nav a {
+            color: #ff4500;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar-nav a:hover {
+            color: #00bfff; /* Spider-Man blue */
+        }
+
+        .chat-container {
+            width: 90%;
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 80px; /* Adjusted for navbar */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+
+        .chat-header {
+            text-align: center;
+            font-size: 36px;
+            color: #ff4500;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .chat-box {
+            height: 400px;
+            overflow-y: auto;
+            border-radius: 15px;
+            padding: 15px;
+            background: #fff;
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .chat-message {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .chat-message img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .message-content {
+            max-width: 75%;
+            background-color: #ff4500; /* Spider-Man red */
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            color: white;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .user-message {
+            justify-content: flex-end;
+        }
+
+        .user-message .message-content {
+            background-color: #333;
+            color: white;
+        }
+
+        .chat-input-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex-grow: 1;
+            padding: 12px;
+            border-radius: 25px;
+            border: 2px solid #ff4500;
+            margin-right: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .chat-button {
+            padding: 12px 20px;
+            background-color: #ff4500;
+            border: none;
+            color: white;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+        }
+
+        .chat-button:hover {
+            background-color: #00bfff;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Web effects -->
+    <div class="web-effect"></div>
+    <div class="web-effect"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="PremiumIndex.html">GENIE</a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+	          <li class="nav-item"><a href="PremiumIndex.html" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="PremiumAbout.html" class="nav-link"><span>About</span></a></li>
+	          <li class="nav-item"><a href="PremiumSubscription.html" class="nav-link"><span>Subscription</span></a></li>
+	          <li class="nav-item"><a href="PremiumChatbot.html" class="nav-link"><span>Chatbots</span></a></li>
+	          <li class="nav-item"><a href="PremiumContact.html" class="nav-link"><span>Contact</span></a></li>
+              <li class="nav-item"><a href="PremiumDashboard.html" class="nav-link"><span>Dashboard</span></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+
+    <!-- Chatbot Container -->
+    <div class="chat-container">
+        <div class="chat-header">Spider-Man Chatbot</div>
+        <div class="chat-box" id="chat-box">
+            <!-- Chat messages will be appended here -->
+        </div>
+        <div class="chat-input-container">
+            <input type="text" id="user-input" class="chat-input" placeholder="Ask Spidey anything..." />
+            <button class="chat-button" id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        function appendMessage(message, sender) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chat-message');
+
+            if (sender === 'Spidey') {
+                messageElement.innerHTML = `
+                    <img src="images/spiderman-icon.jpg" alt="Spider-Man Avatar">
+                    <div class="message-content">${message}</div>
+                `;
+            } else {
+                messageElement.classList.add('user-message');
+                messageElement.innerHTML = `
+                    <div class="message-content">${message}</div>
+                `;
+            }
+
+            chatBox.appendChild(messageElement);
+            chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to the latest message
+        }
+
+        // Simulate Spider-Man's response
+        function getSpideyResponse(userMessage) {
+            const spideyResponses = [
+                "With great power comes great responsibility!",
+                "I'm your friendly neighborhood Spider-Man!",
+                "Web-slinging through the city is always fun!",
+                "Need help with something? Just ask!",
+                "I can do this all day... Oh wait, that's Cap's line!"
+            ];
+
+            // Pick a random response for Spider-Man
+            return spideyResponses[Math.floor(Math.random() * spideyResponses.length)];
+        }
+
+        sendBtn.addEventListener('click', () => {
+            const userMessage = userInput.value.trim();
+            if (userMessage) {
+                appendMessage(userMessage, 'User');
+                userInput.value = ''; // Clear input field
+
+                // Simulate a slight delay for Spider-Man's response
+                setTimeout(() => {
+                    const spideyResponse = getSpideyResponse(userMessage);
+                    appendMessage(spideyResponse, 'Spidey');
+                }, 1000);
+            }
+        });
+
+        // Enable pressing Enter key to send the message
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendBtn.click();
+            }
+        });
+    </script>
+
+</body>
+
+</html>
+
+

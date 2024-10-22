@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Scramble Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: #00ff00;
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navbar-nav a {
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar-nav a:hover {
+            color: #ff4500;
+        }
+
+        .game-container {
+            margin-top: 80px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s;
+        }
+
+        .game-container:hover {
+            transform: scale(1.02);
+        }
+
+        .scrambled-word {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .input-container {
+            margin: 10px 0;
+        }
+
+        .input-container input {
+            padding: 10px;
+            font-size: 18px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .submit-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #00ff00;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 10px;
+        }
+
+        .submit-button:hover {
+            background-color: #ff4500;
+            transform: scale(1.05);
+        }
+
+        .hint {
+            margin-top: 10px;
+            font-style: italic;
+            color: #ffcc00;
+        }
+
+        .result {
+            margin-top: 15px;
+            display: none;
+            font-weight: bold;
+        }
+
+        .score-container {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        .timer {
+            font-size: 20px;
+            color: #ffcc00;
+        }
+
+        .win-modal,
+        .unlock-modal,
+        .congrats-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 1001;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .win-modal button,
+        .unlock-modal button,
+        .congrats-modal button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #00ff00;
+            color: #000;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .win-modal button:hover,
+        .unlock-modal button:hover,
+        .congrats-modal button:hover {
+            background-color: #ff4500;
+        }
+
+        .level-summary {
+            display: none;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="PremiumIndex.html">GENIE</a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+                data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                    <li class="nav-item"><a href="PremiumIndex.html" class="nav-link"><span>Home</span></a></li>
+                    <li class="nav-item"><a href="PremiumAbout.html" class="nav-link"><span>About</span></a></li>
+                    <li class="nav-item"><a href="PremiumSubscription.html" class="nav-link"><span>Subscription</span></a></li>
+                    <li class="nav-item"><a href="PremiumChatbot.html" class="nav-link"><span>Chatbots</span></a></li>
+                    <li class="nav-item"><a href="Fun.html" class="nav-link"><span>Fun & Games</span></a></li>
+                    <li class="nav-item"><a href="PremiumContact.html" class="nav-link"><span>Contact</span></a></li>
+                    <li class="nav-item"><a href="PremiumDashboard.html" class="nav-link"><span>Dashboard</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="game-container">
+        <h2>Word Scramble Game</h2>
+        <div class="timer" id="timer">Time: <span id="time-remaining">30</span> seconds</div>
+        <div class="score-container">Score: <span id="score">0</span></div>
+        <div class="scrambled-word" id="scrambled-word"></div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Type your answer here...">
+        </div>
+        <button class="submit-button" id="submit-button">Submit</button>
+        <div class="hint" id="hint"></div>
+        <div class="result" id="result"></div>
+        <div class="level-summary" id="level-summary"></div>
+    </div>
+
+    <div class="win-modal" id="winModal">
+        <h3>Congratulations! You guessed it!</h3>
+        <button id="next-word-button" onclick="startNewLevel()">Next Word</button>
+    </div>
+
+    <div class="congrats-modal" id="congratsModal">
+        <h3>Congratulations on reaching 5 points!</h3>
+        <button onclick="window.location.href='Zlatan.html'">Go to Zlatan</button>
+    </div>
+
+    <div class="unlock-modal" id="unlockModal">
+        <h3>You've unlocked Zlatan!</h3>
+        <button onclick="window.location.href='Zlatan.html'">Go to Zlatan</button>
+    </div>
+
+    <script>
+        const words = [
+            { word: "LAPTOP", hint: "A portable computer." },
+            { word: "ELEPHANT", hint: "A large land animal with a trunk." },
+            { word: "MOUNTAIN", hint: "A large landform that rises above the surrounding land." },
+            { word: "GUITAR", hint: "A stringed musical instrument." },
+            { word: "PYTHON", hint: "A programming language." },
+            { word: "AIRPLANE", hint: "A flying vehicle." },
+            { word: "BASKETBALL", hint: "A popular team sport." },
+            { word: "DINOSAUR", hint: "A prehistoric animal." },
+            { word: "HAMBURGER", hint: "A common fast food item." },
+            { word: "OCEAN", hint: "A large body of saltwater." }
+        ];
+
+        let currentWordIndex = 0;
+        let score = 0;
+        let timeRemaining = 30;
+        let timerInterval;
+
+        function startNewLevel() {
+            // Hide the Next Word button after it's clicked
+            document.getElementById('winModal').style.display = "none";
+            
+            if (currentWordIndex < words.length) {
+                const currentWord = words[currentWordIndex];
+                const scrambledWord = currentWord.word.split('').sort(() => Math.random() - 0.5).join('');
+                document.getElementById('scrambled-word').innerText = scrambledWord;
+                document.getElementById('hint').innerText = "Hint: " + currentWord.hint;
+                document.getElementById('result').style.display = "none";
+                document.getElementById('user-input').value = '';
+                document.getElementById('user-input').focus();
+                timeRemaining = 30;
+                document.getElementById('time-remaining').innerText = timeRemaining;
+                startTimer();
+            } else {
+                endGame();
+            }
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                document.getElementById('time-remaining').innerText = timeRemaining;
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById('result').innerText = "Time's up! The correct word was: " + words[currentWordIndex].word;
+                    document.getElementById('result').style.color = "red";
+                    document.getElementById('result').style.display = "block";
+                    setTimeout(() => {
+                        startNewLevel();
+                    }, 2000);
+                }
+            }, 1000);
+        }
+
+        document.getElementById('submit-button').addEventListener('click', () => {
+            const userInput = document.getElementById('user-input').value.toUpperCase();
+            const currentWord = words[currentWordIndex].word;
+
+            if (userInput === currentWord) {
+                score++;
+                document.getElementById('score').innerText = score;
+
+                if (score === 5) {
+                    document.getElementById('congratsModal').style.display = "block";
+                }
+
+                if (score === 10) {
+                    unlockZlatan();
+                } else {
+                    document.getElementById('winModal').style.display = "block";
+                    clearInterval(timerInterval);
+                }
+                currentWordIndex++;
+                setTimeout(() => {
+                    document.getElementById('next-word-button').style.display = 'none'; // Hide the button after it's clicked
+                    startNewLevel();
+                }, 2000);
+            } else {
+                timeRemaining -= 5; // Deduct time for wrong answer
+                document.getElementById('result').innerText = "Incorrect! Try again.";
+                document.getElementById('result').style.color = "orange";
+                document.getElementById('result').style.display = "block";
+            }
+        });
+
+        function unlockZlatan() {
+            document.getElementById('unlockModal').style.display = "block";
+        }
+
+        // Initialize the game
+        startNewLevel();
+    </script>
+</body>
+
+</html>

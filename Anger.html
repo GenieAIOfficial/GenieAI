@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick Sanchez Chatbot</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url(images/anger-bg.jpg); /* Add Anger's background here */
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .chat-container {
+                width: 95%;
+                margin-top: 60px;
+            }
+            .chat-header {
+                font-size: 28px;
+            }
+            .chat-input {
+                font-size: 14px;
+            }
+            .chat-button {
+                font-size: 16px;
+            }
+        }
+
+        .navbar {
+            background-color: #d9534f; /* Anger's red color */
+            padding: 15px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navbar-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar-nav a:hover {
+            color: #ff4d4d;
+        }
+
+        .chat-container {
+            width: 90%;
+            max-width: 600px;
+            background: rgba(217, 83, 79, 0.9); /* Dark red background */
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 80px; /* Adjusted for navbar */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            text-align: center;
+            font-size: 36px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .chat-box {
+            height: 400px;
+            overflow-y: auto;
+            border-radius: 15px;
+            padding: 15px;
+            background: #fff;
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .chat-message {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .chat-message img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .message-content {
+            max-width: 75%;
+            background-color: #d9534f; /* Anger's red */
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            color: white;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .user-message {
+            justify-content: flex-end;
+        }
+
+        .user-message .message-content {
+            background-color: #333;
+            color: white;
+        }
+
+        .chat-input-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex-grow: 1;
+            padding: 12px;
+            border-radius: 25px;
+            border: 2px solid #d9534f;
+            margin-right: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .chat-button {
+            padding: 12px 20px;
+            background-color: #d9534f;
+            border: none;
+            color: white;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+        }
+
+        .chat-button:hover {
+            background-color: #ff4d4d;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="PremiumIndex.html">GENIE</a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+	          <li class="nav-item"><a href="PremiumIndex.html" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="PremiumAbout.html" class="nav-link"><span>About</span></a></li>
+	          <li class="nav-item"><a href="PremiumSubscription.html" class="nav-link"><span>Subscription</span></a></li>
+	          <li class="nav-item"><a href="PremiumChatbot.html" class="nav-link"><span>Chatbots</span></a></li>
+	          <li class="nav-item"><a href="PremiumContact.html" class="nav-link"><span>Contact</span></a></li>
+              <li class="nav-item"><a href="PremiumDashboard.html" class="nav-link"><span>Dashboard</span></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+
+    <!-- Chatbot Container -->
+    <div class="chat-container">
+        <div class="chat-header">Anger Chatbot</div>
+        <div class="chat-box" id="chat-box">
+            <!-- Chat messages will be appended here -->
+        </div>
+        <div class="chat-input-container">
+            <input type="text" id="user-input" class="chat-input" placeholder="Ask Anger anything..." />
+            <button class="chat-button" id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        function appendMessage(message, sender) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chat-message');
+
+            if (sender === 'Anger') {
+                messageElement.innerHTML = `
+                    <img src="images/anger-icon.png" alt="Anger Avatar">
+                    <div class="message-content">${message}</div>
+                `;
+            } else {
+                messageElement.classList.add('user-message');
+                messageElement.innerHTML = `
+                    <div class="message-content">${message}</div>
+                    <img src="images/genie3.jpg" alt="User Avatar">
+                `;
+            }
+
+            chatBox.appendChild(messageElement);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        async function getAngerResponse(userMessage) {
+            try {
+                const response = await fetch('http://localhost:3000/chatAnger', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: userMessage })
+                });
+
+                const data = await response.json();
+
+                if (data.reply) {
+                    return data.reply;
+                } else {
+                    return "Grrrr... I'm too mad to reply right now!";
+                }
+            } catch (error) {
+                console.error('Error fetching Anger response:', error);
+                return "I'm too angry to deal with this right now! Try again!";
+            }
+        }
+
+        sendBtn.addEventListener('click', async function() {
+            const userMessage = userInput.value;
+            if (userMessage.trim() !== "") {
+                appendMessage(userMessage, "You");
+                const angerReply = await getAngerResponse(userMessage);
+                setTimeout(() => {
+                    appendMessage(angerReply, "Anger");
+                }, 1000);
+                userInput.value = "";
+            }
+        });
+
+        userInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                sendBtn.click();
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damon Salvatore Chatbot</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url(images/damon-bg.jpg); /* Damon Salvatore background */
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            background-color: #000000; /* Dark vampire vibe */
+            padding: 15px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navbar-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar-nav a:hover {
+            color: #b30000;
+        }
+
+        .chat-container {
+            width: 90%;
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.9); /* Dark background */
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 80px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+
+        .chat-header {
+            text-align: center;
+            font-size: 36px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .chat-box {
+            height: 400px;
+            overflow-y: auto;
+            border-radius: 15px;
+            padding: 15px;
+            background: #fff;
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .chat-message {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .chat-message img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .message-content {
+            max-width: 75%;
+            background-color: #000; /* Dark for Damon */
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .user-message {
+            justify-content: flex-end;
+        }
+
+        .user-message .message-content {
+            background-color: #333;
+            color: white;
+        }
+
+        .chat-input-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex-grow: 1;
+            padding: 12px;
+            border-radius: 25px;
+            border: 2px solid #000;
+            margin-right: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .chat-button {
+            padding: 12px 20px;
+            background-color: #000;
+            border: none;
+            color: white;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+        }
+
+        .chat-button:hover {
+            background-color: #b30000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="PremiumIndex.html">GENIE</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                    <li class="nav-item"><a href="PremiumIndex.html" class="nav-link"><span>Home</span></a></li>
+                    <li class="nav-item"><a href="PremiumAbout.html" class="nav-link"><span>About</span></a></li>
+                    <li class="nav-item"><a href="PremiumSubscription.html" class="nav-link"><span>Subscription</span></a></li>
+                    <li class="nav-item"><a href="PremiumChatbot.html" class="nav-link"><span>Chatbots</span></a></li>
+                    <li class="nav-item"><a href="PremiumContact.html" class="nav-link"><span>Contact</span></a></li>
+                    <li class="nav-item"><a href="PremiumDashboard.html" class="nav-link"><span>Dashboard</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chatbot Container -->
+    <div class="chat-container">
+        <div class="chat-header">Damon Salvatore Chatbot</div>
+        <div class="chat-box" id="chat-box">
+            <!-- Chat messages will be appended here -->
+        </div>
+        <div class="chat-input-container">
+            <input type="text" id="user-input" class="chat-input" placeholder="Ask Damon anything..." />
+            <button class="chat-button" id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        function appendMessage(message, sender) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chat-message');
+
+            if (sender === 'Damon') {
+                messageElement.innerHTML = `
+                    <img src="images/damon-icon.jpg" alt="Damon Avatar">
+                    <div class="message-content">${message}</div>
+                `;
+            } else {
+                messageElement.classList.add('user-message');
+                messageElement.innerHTML = `
+                    <div class="message-content">${message}</div>
+                    <img src="images/genie3.jpg" alt="User Avatar">
+                `;
+            }
+
+            chatBox.appendChild(messageElement);
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+        }
+
+        async function getDamonResponse(userMessage) {
+            try {
+                const response = await fetch('http://localhost:3000/chatDamon', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: userMessage })
+                });
+
+                const data = await response.json();
+
+                if (data.reply) {
+                    return data.reply;
+                } else {
+                    return "Sorry, Damon's response is not available.";
+                }
+            } catch (error) {
+                console.error('Error fetching Damon response:', error);
+                return "Oops! Looks like Damon is busy. Try again later!";
+            }
+        }
+
+        sendBtn.addEventListener('click', async function () {
+            const userMessage = userInput.value;
+            if (userMessage.trim() !== "") {
+                appendMessage(userMessage, "You");
+                const damonReply = await getDamonResponse(userMessage);
+                setTimeout(() => {
+                    appendMessage(damonReply, "Damon");
+                }, 1000); // Simulates a delay for Damon's response
+                userInput.value = "";
+            }
+        });
+
+        userInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                sendBtn.click();
+            }
+        });
+    </script>
+</body>
+
+</html>

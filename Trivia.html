@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun & Games</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            background-image: url('images/background.jpg');
+            background-color: #000;
+            background-size: cover;
+            background-position: center;
+            font-family: 'Poppins', sans-serif;
+            color: #fef1f1;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: #00ff00;
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navbar-nav a {
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar-nav a:hover {
+            color: #ff4500;
+        }
+
+        .game-container {
+            margin-top: 80px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s;
+        }
+
+        .game-container:hover {
+            transform: scale(1.05);
+        }
+
+        #question {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .btn {
+            background-color: #00ff00;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #000;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin: 5px 0;
+        }
+
+        .btn:hover {
+            background-color: #ff4500;
+            transform: translateY(-2px);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Pop-up Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(11, 10, 10, 0.9);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #009c37;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: center;
+            border-radius: 10px;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="PremiumIndex.html">GENIE</a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+                data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                    <li class="nav-item"><a href="PremiumIndex.html" class="nav-link"><span>Home</span></a></li>
+                    <li class="nav-item"><a href="PremiumAbout.html" class="nav-link"><span>About</span></a></li>
+                    <li class="nav-item"><a href="PremiumSubscription.html" class="nav-link"><span>Subscription</span></a></li>
+                    <li class="nav-item"><a href="PremiumChatbot.html" class="nav-link"><span>Chatbots</span></a></li>
+                    <li class="nav-item"><a href="Fun.html" class="nav-link"><span>Fun & Games</span></a></li>
+                    <li class="nav-item"><a href="PremiumContact.html" class="nav-link"><span>Contact</span></a></li>
+                    <li class="nav-item"><a href="PremiumDashboard.html" class="nav-link"><span>Dashboard</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="game-container">
+        <h2>Trivia Game</h2>
+        <div id="question-container">
+            <p id="question">Question will appear here</p>
+            <div id="answer-buttons" class="btn-container">
+                <button class="btn" onclick="selectAnswer(0)">Answer 1</button>
+                <button class="btn" onclick="selectAnswer(1)">Answer 2</button>
+                <button class="btn" onclick="selectAnswer(2)">Answer 3</button>
+                <button class="btn" onclick="selectAnswer(3)">Answer 4</button>
+            </div>
+        </div>
+        <div id="result" class="hidden">
+            <p id="result-text"></p>
+            <button class="btn" id="retry-btn" onclick="retryGame()">Try Again</button>
+        </div>
+    </div>
+
+    <!-- Pop-up Modal for Win -->
+    <div id="winModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Congratulations!</h2>
+            <p>You won the game!</p>
+            <button class="btn" onclick="window.location.href='Ted.html'">Go to Ted</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "What is the capital of France?",
+                answers: ["Berlin", "Madrid", "Paris", "Rome"],
+                correct: 2
+            },
+            {
+                question: "Who wrote 'Hamlet'?",
+                answers: ["Charles Dickens", "Jane Austen", "Mark Twain", "William Shakespeare"],
+                correct: 3
+            },
+            {
+                question: "What is the largest planet in our solar system?",
+                answers: ["Earth", "Mars", "Jupiter", "Saturn"],
+                correct: 2
+            },
+            {
+                question: "What is the boiling point of water?",
+                answers: ["50°C", "75°C", "100°C", "150°C"],
+                correct: 2
+            },
+            {
+                question: "Who painted the Mona Lisa?",
+                answers: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+                correct: 2
+            },
+            {
+                question: "Which gas do plants absorb from the atmosphere?",
+                answers: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+                correct: 1
+            },
+            {
+                question: "What is the smallest country in the world?",
+                answers: ["Monaco", "Malta", "Vatican City", "Nauru"],
+                correct: 2
+            },
+            {
+                question: "Which element has the chemical symbol 'O'?",
+                answers: ["Osmium", "Oxygen", "Gold", "Silver"],
+                correct: 1
+            },
+            {
+                question: "What is the currency of Japan?",
+                answers: ["Yuan", "Dollar", "Yen", "Won"],
+                correct: 2
+            },
+            {
+                question: "What year did the Titanic sink?",
+                answers: ["1912", "1905", "1920", "1898"],
+                correct: 0
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function startGame() {
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById('result').classList.add('hidden');
+            document.getElementById('question-container').classList.remove('hidden');
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            document.getElementById('question').innerText = currentQuestion.question;
+            const buttons = document.getElementById('answer-buttons').children;
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].innerText = currentQuestion.answers[i];
+                buttons[i].classList.remove('correct', 'wrong');
+            }
+        }
+
+        function selectAnswer(answerIndex) {
+            const currentQuestion = questions[currentQuestionIndex];
+            if (answerIndex === currentQuestion.correct) {
+                score++;
+                if (currentQuestionIndex < questions.length - 1) {
+                    currentQuestionIndex++;
+                    showQuestion();
+                } else {
+                    document.getElementById('question-container').classList.add('hidden');
+                    document.getElementById('winModal').style.display = 'block';
+                }
+            } else {
+                document.getElementById('result').classList.remove('hidden');
+                document.getElementById('result-text').innerText = "Incorrect! The correct answer was: " + currentQuestion.answers[currentQuestion.correct];
+                document.getElementById('question-container').classList.add('hidden');
+            }
+        }
+
+        function retryGame() {
+            document.getElementById('result').classList.add('hidden');
+            startGame();
+        }
+
+        // Modal control
+        function closeModal() {
+            document.getElementById('winModal').style.display = 'none';
+        }
+
+        // Start the game when the page loads
+        window.onload = startGame;
+
+        // Close the modal when clicking outside of it
+        window.onclick = function (event) {
+            const modal = document.getElementById('winModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+
+</html>

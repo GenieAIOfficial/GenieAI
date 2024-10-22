@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            background-image: url('images/background.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+        }
+
+        .navbar {
+            background-color: #000;
+            padding: 15px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: #00ff00; /* Rick and Morty green */
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navbar-nav a {
+            color: #00ff00; /* Rick and Morty green */
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar-nav a:hover {
+            color: #ff4500;
+        }
+
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px; /* Adjusted for navbar */
+            width: 100%;
+            height: calc(100vh - 80px);
+        }
+
+        .start-button {
+            padding: 15px 30px;
+            font-size: 24px;
+            color: #fff;
+            background-color: #00ff00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .start-button:hover {
+            background-color: #ff4500;
+        }
+
+        .win-button {
+            display: none;
+            padding: 15px 30px;
+            font-size: 24px;
+            color: #fff;
+            background-color: #00bfff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .win-button:hover {
+            background-color: #1e90ff;
+        }
+
+        .click-count {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="PremiumIndex.html">GENIE</a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                    <li class="nav-item"><a href="PremiumIndex.html" class="nav-link"><span>Home</span></a></li>
+                    <li class="nav-item"><a href="PremiumAbout.html" class="nav-link"><span>About</span></a></li>
+                    <li class="nav-item"><a href="PremiumSubscription.html" class="nav-link"><span>Subscription</span></a></li>
+                    <li class="nav-item"><a href="PremiumChatbot.html" class="nav-link"><span>Chatbots</span></a></li>
+                    <li class="nav-item"><a href="PremiumContact.html" class="nav-link"><span>Contact</span></a></li>
+                    <li class="nav-item"><a href="PremiumDashboard.html" class="nav-link"><span>Dashboard</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="game-container">
+        <h1>Speed Game</h1>
+        <p>Click the button as fast as you can!</p>
+        <button class="start-button" id="startButton">Start Game</button>
+        <button class="win-button" id="winButton" onclick="window.location.href='iShowSpeed.html'">You Won! Go to iShowSpeed</button>
+        <div class="click-count" id="clickCount">Clicks: 0</div>
+    </div>
+
+    <script>
+        let isGameActive = false;
+        let clickCount = 0;
+        const startButton = document.getElementById('startButton');
+        const winButton = document.getElementById('winButton');
+        const clickCountDisplay = document.getElementById('clickCount');
+
+        startButton.addEventListener('click', function () {
+            if (!isGameActive) {
+                isGameActive = true;
+                clickCount = 0; // Reset click count
+                clickCountDisplay.innerText = "Clicks: 0"; // Update display
+                startGame();
+            }
+        });
+
+        function startGame() {
+            startButton.innerText = "Click Me!";
+            winButton.style.display = "none"; // Hide the win button initially
+            startButton.addEventListener('click', handleClick);
+
+            // Game lasts for 5 seconds
+            setTimeout(() => {
+                if (isGameActive) {
+                    alert("Time's up! You didn't click fast enough.");
+                    resetGame();
+                }
+            }, 5000);
+        }
+
+        function handleClick() {
+            if (isGameActive) {
+                clickCount++;
+                clickCountDisplay.innerText = "Clicks: " + clickCount; // Update click count display
+
+                // Check if clicked 100 times
+                if (clickCount === 20) {
+                    winButton.style.display = "block"; // Show win button
+                    startButton.style.display = "none"; // Hide click button
+                    isGameActive = false; // End the game
+                }
+            }
+        }
+
+        function resetGame() {
+            isGameActive = false;
+            startButton.innerText = "Start Game";
+            winButton.style.display = "none";
+            startButton.style.display = "block";
+            clickCountDisplay.innerText = "Clicks: 0"; // Reset click count display
+        }
+    </script>
+
+</body>
+
+</html>
