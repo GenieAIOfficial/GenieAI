@@ -22,140 +22,204 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        body {
-            background-color: #000;
-            color: #f1f1f1;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        .navbar {
-            background-color: #111;
-        }
-        .navbar-brand, .nav-link {
-            color: #fff !important;
-        }
-        .navbar-brand:hover, .nav-link:hover {
-            color: #ddd !important;
-        }
-        .contact-section {
-            background-color: #111;
-            padding: 60px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        .contact-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('images/contact-bg.jpg') no-repeat center center/cover;
-            filter: brightness(50%);
-            z-index: -1;
-        }
-        .contact-section h2 {
-            color: #fff;
-            font-weight: 700;
-            margin-bottom: 20px;
-            animation: fadeInUp 1s ease-out;
-        }
-        .contact-section p {
-            color: #ddd;
-            animation: fadeInUp 1.5s ease-out;
-        }
-        .contact-info .box {
-            background-color: #222;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-            color: #fff;
-        }
-        .contact-info .box:hover {
-            transform: scale(1.05);
-        }
-        .contact-info .icon {
-            color: #007bff;
-            font-size: 24px;
-        }
-        .contact-form {
-            background-color: #222;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            padding: 30px;
-            animation: fadeInUp 2s ease-out;
-        }
-        .contact-form .form-group input, .contact-form .form-group textarea {
-            border-radius: 8px;
-            margin-bottom: 15px;
-            background-color: #333;
-            color: #f1f1f1;
-            border: 1px solid #444;
-        }
-        .contact-form .btn {
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 8px;
-        }
-        .contact-form .btn:hover {
-            background-color: #0056b3;
-        }
-        .footer {
-            background-color: #111;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-        }
-        .footer a {
-            color: #007bff;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .map-container {
-            height: 400px;
-            width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .contact-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-        .contact-row > div {
-            flex: 1;
-            margin-right: 20px;
-        }
-        .contact-row > div:last-child {
-            margin-right: 0;
-        }
-        .contact-details {
-            margin-top: 20px;
-        }
-        .contact-details h3 {
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        .contact-details p {
-            margin: 0;
-            color: #ddd;
-        }
+ body {
+    background-color: #000;
+    color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #111;
+    padding: 15px;
+}
+
+.navbar-brand, .nav-link {
+    color: #fff !important;
+    font-size: 18px;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: #ddd !important;
+}
+
+.contact-section {
+    background-color: #111;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/contact-bg.jpg') no-repeat center center/cover;
+    filter: brightness(50%);
+    z-index: -1;
+}
+
+.contact-section h2 {
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+.contact-section p {
+    color: #ddd;
+    animation: fadeInUp 1.5s ease-out;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-info .box {
+    background-color: #222;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.contact-info .box:hover {
+    transform: scale(1.05);
+}
+
+.contact-info .icon {
+    color: #007bff;
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.contact-form {
+    background-color: #222;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    animation: fadeInUp 2s ease-out;
+}
+
+.contact-form .form-group input, .contact-form .form-group textarea {
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #333;
+    color: #f1f1f1;
+    border: 1px solid #444;
+    padding: 10px;
+    width: 100%;
+}
+
+.contact-form .btn {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.contact-form .btn:hover {
+    background-color: #0056b3;
+}
+
+.footer {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer a {
+    color: #007bff;
+}
+
+.map-container {
+    height: 400px;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.contact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contact-row > div {
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.contact-details {
+    margin-top: 20px;
+}
+
+.contact-details h3 {
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.contact-details p {
+    margin: 0;
+    color: #ddd;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .contact-row {
+        flex-direction: column;
+    }
+
+    .navbar-brand {
+        font-size: 20px;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .contact-section h2, .contact-section p {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .map-container {
+        height: 300px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -198,23 +262,23 @@
                     <div class="contact-details">
                         <h3>Contact Details</h3>
                         <p><strong>Phone:</strong> +27 730581227</p>
-                        <p><strong>Website:</strong> <a href="PremiumIndex.html" target="_blank">genieaicontact@gmail.com</a></p>
+                        <p><strong>Website:</strong> <a href="index.html" target="_blank">genieaicontact@gmail.com</a></p>
                     </div>
                 </div>
                 <!-- Contact Form -->
                 <div class="col-md-7">
-                    <form action="send_email.php" method="POST" class="contact-form">
+                    <form class="contact-form" id="contact-form">
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                            <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject" required>
                         </div>
                         <div class="form-group">
-                            <textarea name="message" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
+                            <textarea name="message" cols="30" id="message" rows="7" class="form-control" placeholder="Message" required></textarea>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
@@ -234,5 +298,24 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+    
+            // Grab form field values
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var subject = document.getElementById("subject").value;
+            var message = document.getElementById("message").value;
+    
+            // Combine name, email, and message into the email body
+            var emailBody =  message;
+    
+            // Create mailto link and open email client
+            var mailtoLink = "mailto:genieaicontact@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(emailBody);
+            window.location.href = mailtoLink;
+        });
+    </script>
 </body>
 </html>
