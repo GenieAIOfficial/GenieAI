@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+     
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-messaging-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics-compat.js"></script>
+
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -213,8 +219,7 @@
     </style>
 
     <script type="module">
-         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-
+       
         document.getElementById('login-form').addEventListener('submit', async function (e) {
 
             e.preventDefault(); // Prevent the default form submission
@@ -273,7 +278,7 @@
         };
 
        // Initialize Firebase Auth App 
-    const authApp=firebase.initializeApp(firebaseConfig);
+         const authApp=firebase.initializeApp(firebaseConfig);
     
 
         let loginWithGoogleBtn = document.getElementById('loginWithGoogleBtn');
