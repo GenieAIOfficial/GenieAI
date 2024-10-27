@@ -33,26 +33,30 @@
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
         }
-
-        @media (max-width: 768px) {
+   @media (max-width: 768px) {
             .chat-container {
                 width: 95%;
-                margin-top: 60px;
+                margin-top: 60px; /* Adjust margin to fit the navbar */
+                padding: 20px; /* Reduced padding for mobile */
             }
-
             .chat-header {
-                font-size: 28px;
+                font-size: 28px; /* Smaller font for mobile */
             }
-
             .chat-input {
-                font-size: 14px;
+                font-size: 14px; /* Smaller input font */
             }
-
             .chat-button {
-                font-size: 16px;
+                font-size: 16px; /* Smaller button font */
+            }
+            .navbar-nav {
+                flex-direction: column; /* Stack nav items vertically */
+                gap: 10px; /* Adjust gap for smaller screens */
+            }
+            .navbar-nav a {
+                font-size: 16px; /* Adjust font size for nav links */
             }
         }
-
+    
         .navbar {
             background-color: #00ccff; /* Mr. Meeseeks blue */
             padding: 15px;
