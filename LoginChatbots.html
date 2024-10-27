@@ -23,13 +23,14 @@
             flex-direction: column;
             align-items: center;
             margin: 0;
-            background-image: url('images/background.jpg'); /* Background image */
+            background-image: url('images/background.jpg');
             background-size: cover;
             background-position: center;
             font-family: 'Poppins', sans-serif;
             color: #fff;
+            height: 100vh;
         }
-
+    
         .navbar {
             background-color: #000;
             padding: 15px;
@@ -38,40 +39,43 @@
             top: 0;
             left: 0;
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
+    
         .navbar-brand {
-            color: #00ff00; /* Rick and Morty green */
+            color: #00ff00;
             font-size: 24px;
             text-transform: uppercase;
             font-weight: bold;
         }
-
+    
         .navbar-nav {
             display: flex;
             justify-content: center;
             gap: 20px;
         }
-
+    
         .navbar-nav a {
-            color: #00ff00; /* Rick and Morty green */
+            color: #00ff00;
             text-decoration: none;
             font-size: 18px;
         }
-
+    
         .navbar-nav a:hover {
             color: #ff4500;
         }
-
+    
         .categories-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 80px; /* Adjusted for navbar */
+            margin-top: 80px;
             gap: 20px;
             padding: 20px;
         }
-
+    
         .category-card {
             width: 300px;
             height: 200px;
@@ -82,23 +86,19 @@
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-
+    
         .category-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: opacity 0.3s;
         }
-
+    
         .category-card:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
         }
-
-        .category-card:hover img {
-            opacity: 0.8;
-        }
-
+    
         .category-overlay {
             position: absolute;
             top: 0;
@@ -115,37 +115,143 @@
             opacity: 0;
             transition: opacity 0.3s;
         }
-
+    
         .category-card:hover .category-overlay {
             opacity: 1;
         }
-
+    
+        .locked {
+            filter: grayscale(100%);
+            pointer-events: none;
+        }
+    
+        .locked .category-overlay {
+            background: rgba(255, 0, 0, 0.6);
+            color: #000;
+        }
+    
+        .locked .locked-symbol {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+        }
+    
+        .locked .category-overlay::after {
+            content: "Locked";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 30px;
+            color: #fff;
+        }
+    
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .navbar-nav a {
+                font-size: 16px;
+            }
+    
+            .categories-container {
+                padding: 15px;
+            }
+    
+            .category-card {
+                width: 260px;
+                height: 180px;
+            }
+    
+            .category-overlay {
+                font-size: 22px;
+            }
+        }
+    
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 20px;
+            }
+    
+            .navbar-nav {
+                gap: 15px;
+            }
+    
+            .navbar-nav a {
+                font-size: 14px;
+            }
+    
+            .categories-container {
+                padding: 10px;
+                gap: 15px;
+            }
+    
+            .category-card {
+                width: 220px;
+                height: 160px;
+            }
+    
+            .category-overlay {
+                font-size: 20px;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+    
+            .navbar-brand {
+                font-size: 18px;
+            }
+    
+            .navbar-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+    
+            .categories-container {
+                padding: 5px;
+                gap: 10px;
+            }
+    
+            .category-card {
+                width: 100%;
+                height: 150px;
+            }
+    
+            .category-overlay {
+                font-size: 18px;
+            }
+        }
     </style>
+    
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="LoginIndex.html">GENIE</a>
-	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="LoginIndex.html">GENIE</a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                    <li class="nav-item"><a href="LoginIndex.html" class="nav-link"><span>Home</span></a></li>
+                    <li class="nav-item"><a href="LoginAbout.html" class="nav-link"><span>About</span></a></li>
+                    <li class="nav-item"><a href="LoginSubscription.html" class="nav-link"><span>Subscription</span></a></li>
+                    <li class="nav-item"><a href="LoginChatbots.html" class="nav-link"><span>Chatbots</span></a></li>
+                    <li class="nav-item"><a href="LoginContact.html" class="nav-link"><span>Contact</span></a></li>
+                    <li class="nav-item"><a href="Dashboard.html" class="nav-link"><span>Dashboard</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav nav ml-auto">
-                <li class="nav-item"><a href="LoginIndex.html" class="nav-link"><span>Home</span></a></li>
-                <li class="nav-item"><a href="LoginAbout.html" class="nav-link"><span>About</span></a></li>
-                <li class="nav-item"><a href="LoginSubscription.html" class="nav-link"><span>Subscription</span></a></li>
-                <li class="nav-item"><a href="LoginChatbots.html" class="nav-link"><span>Chatbots</span></a></li>
-                <li class="nav-item"><a href="LoginContact.html" class="nav-link"><span>Contact</span></a></li>
-                <li class="nav-item"><a href="Dashboard.html" class="nav-link"><span>Dashboard</span></a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
 
-      <div class="categories-container">
+    <div class="categories-container">
         <a href="Free.html" class="category-card">
             <img src="images/Free-cat.png" alt="Free">
             <div class="category-overlay">Free</div>
@@ -198,6 +304,9 @@
         </a>
     </div>
 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+        <meta charset="UTF-8">
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+     <script src="js/main.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speed Game</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -177,7 +180,7 @@
                 clickCountDisplay.innerText = "Clicks: " + clickCount; // Update click count display
 
                 // Check if clicked 100 times
-                if (clickCount === 20) {
+                if (clickCount === 5) {
                     winButton.style.display = "block"; // Show win button
                     startButton.style.display = "none"; // Hide click button
                     isGameActive = false; // End the game

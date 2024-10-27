@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+        <meta charset="UTF-8">
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+     <script src="js/main.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thor Chatbot</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -165,6 +168,28 @@
             to {
                 opacity: 1;
                 transform: scale(1);
+            }
+        }  @media (max-width: 768px) {
+            .chat-container {
+                width: 95%;
+                margin-top: 60px; /* Adjust margin to fit the navbar */
+                padding: 20px; /* Reduced padding for mobile */
+            }
+            .chat-header {
+                font-size: 28px; /* Smaller font for mobile */
+            }
+            .chat-input {
+                font-size: 14px; /* Smaller input font */
+            }
+            .chat-button {
+                font-size: 16px; /* Smaller button font */
+            }
+            .navbar-nav {
+                flex-direction: column; /* Stack nav items vertically */
+                gap: 10px; /* Adjust gap for smaller screens */
+            }
+            .navbar-nav a {
+                font-size: 16px; /* Adjust font size for nav links */
             }
         }
 

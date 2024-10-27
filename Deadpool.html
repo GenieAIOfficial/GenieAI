@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <style>
         /* Same UI Styling */
         body {
@@ -25,28 +26,13 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-image: url(images/deadpool\ bg.jpg); /* Add Deadpool background here */
+            background-image: url(images/deadpool_bg.jpg); /* Fixed typo in the file path */
             background-size: cover;
             background-position: center;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
         }
-        @media (max-width: 768px) {
-    .chat-container {
-        width: 95%;
-        margin-top: 60px;
-    }
-    .chat-header {
-        font-size: 28px;
-    }
-    .chat-input {
-        font-size: 14px;
-    }
-    .chat-button {
-        font-size: 16px;
-    }
-}
-
+    
         .navbar {
             background-color: #e50000; /* Deadpool's red color */
             padding: 15px;
@@ -75,6 +61,7 @@
         .navbar-nav a:hover {
             color: #ff3333;
         }
+    
         .chat-container {
             width: 90%;
             max-width: 600px;
@@ -156,6 +143,31 @@
         .chat-button:hover {
             background-color: #ff3333;
         }
+    
+        @media (max-width: 768px) {
+            .chat-container {
+                width: 95%;
+                margin-top: 60px; /* Adjust margin to fit the navbar */
+                padding: 20px; /* Reduced padding for mobile */
+            }
+            .chat-header {
+                font-size: 28px; /* Smaller font for mobile */
+            }
+            .chat-input {
+                font-size: 14px; /* Smaller input font */
+            }
+            .chat-button {
+                font-size: 16px; /* Smaller button font */
+            }
+            .navbar-nav {
+                flex-direction: column; /* Stack nav items vertically */
+                gap: 10px; /* Adjust gap for smaller screens */
+            }
+            .navbar-nav a {
+                font-size: 16px; /* Adjust font size for nav links */
+            }
+        }
+    
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -165,8 +177,9 @@
                 opacity: 1;
                 transform: scale(1);
             }
-        }
+        } 
     </style>
+    
 </head>
 
 <body>
@@ -271,7 +284,7 @@
             }
         });
     </script>
-    
+
 </body>
 
 </html>

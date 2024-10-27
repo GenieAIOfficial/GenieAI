@@ -74,11 +74,11 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="LoginIndex.html">GENIE</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-center" id="ftco-nav">
-                <ul class="navbar-nav">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="LoginIndex.html" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="LoginAbout.html" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="LoginSubscription.html" class="nav-link">Subscription</a></li>
@@ -101,28 +101,22 @@
         <button id="logout-btn">Logout</button>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         function formatDate(dateString) {
             const date = new Date(dateString);
-
-            // Extract the day, month, and year
             const day = String(date.getDate()).padStart(2, '0');
-            const month = String(date.getMonth() + 1).padStart(2, '0'); // getMonth() is zero-based
+            const month = String(date.getMonth() + 1).padStart(2, '0'); 
             const year = date.getFullYear();
-
-            // Extract the hours and minutes
             let hours = date.getHours();
             const minutes = String(date.getMinutes()).padStart(2, '0');
-
-            // Determine AM or PM
             const ampm = hours >= 12 ? 'pm' : 'am';
-            hours = hours % 12 || 12; // Convert to 12-hour format
-
-            // Format the date and time
+            hours = hours % 12 || 12; 
             return `${day}-${month}-${year}, ${hours}:${minutes}${ampm}`;
         }
 
-        // Fetch user details from server
         fetch('https://genieai-buenftbhcxg3amhy.southafricanorth-01.azurewebsites.net/getUserDetails', {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -133,7 +127,7 @@
             return response.json();
         })
         .then(data => {
-            document.getElementById('user-name').innerText = data.name; // Display user name
+            document.getElementById('user-name').innerText = data.name; 
             document.getElementById('user-details').innerHTML = `
                 <div class="user-detail"><strong>Name:</strong> ${data.name}</div>
                 <div class="user-detail"><strong>Email:</strong> ${data.email}</div>
@@ -146,10 +140,9 @@
             console.error('Error fetching user details:', error);
         });
 
-        // Logout functionality
         document.getElementById('logout-btn').addEventListener('click', function () {
             localStorage.removeItem('token');
-            window.location.href = 'index.html'; // Redirect to index page
+            window.location.href = 'index.html'; 
         });
     </script>
 </body>

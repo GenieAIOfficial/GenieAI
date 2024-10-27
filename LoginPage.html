@@ -5,8 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
-    
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -19,92 +17,97 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-messaging-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics-compat.js"></script>
+    <style>
+        body {
+            background-image: url('https://source.unsplash.com/1600x900/?technology');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            margin-bottom: 0; /* Remove bottom margin for navbar */
+            position: sticky; /* Make navbar sticky */
+            top: 0; /* Stay at the top */
+            z-index: 1000; /* Ensure it stays above other content */
+        }
+
+        .subscription-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items to the start to position below navbar */
+            padding: 20px;
+            box-sizing: border-box;
+            flex: 1; /* Allows the container to take the remaining height */
+        }
+
+        .subscription-box {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            justify-content: center; /* Center the signup form */
+            align-items: center;
+            background: rgba(3, 3, 13, 0.7);
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(16, 0, 161, 0.7);
+            padding: 40px;
+            animation: fadeIn 1.5s ease;
+            flex-wrap: wrap;
+        }
+
+        .subscription-box h2 {
+            color: #fff;
+            margin-bottom: 30px;
+            font-weight: 600;
+            width: 100%;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Additional styles for better spacing */
+        .login-message {
+            margin-top: 20px; /* Space above the login message */
+            color: #aaa;
+            text-align: center; /* Center the text */
+        }
+    </style>
 </head>
 
-<body style="background-image: url('https://source.unsplash.com/1600x900/?technology'); background-size: cover; background-position: center; color: #fff; height: 100vh; display: flex; justify-content: center; align-items: center; font-family: 'Poppins', sans-serif;">
-
+<body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">GENIE</a>
-            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
             </button>
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav nav ml-auto">
-                  <li class="nav-item"><a href="index.html" class="nav-link"><span>Home</span></a></li>
-                  <li class="nav-item"><a href="LoginPage.html" class="nav-link"><span>Login</span></a></li>
-                  <li class="nav-item"><a href="Signup.html" class="nav-link"><span>SignUp</span></a></li>
-                  <li class="nav-item"><a href="about.html" class="nav-link"><span>About</span></a></li>
-                  <li class="nav-item"><a href="Subscription.html" class="nav-link"><span>Subscription</span></a></li>
-                  <li class="nav-item"><a href="Chatbots.html" class="nav-link"><span>Chatbots</span></a></li>
-                  <li class="nav-item"><a href="Contact.html" class="nav-link"><span>Contact</span></a></li>
+                    <li class="nav-item"><a href="index.html" class="nav-link"><span>Home</span></a></li>
+                    <li class="nav-item"><a href="LoginPage.html" class="nav-link"><span>Login</span></a></li>
+                    <li class="nav-item"><a href="Signup.html" class="nav-link"><span>SignUp</span></a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link"><span>About</span></a></li>
+                    <li class="nav-item"><a href="Subscription.html" class="nav-link"><span>Subscription</span></a></li>
+                    <li class="nav-item"><a href="Chatbots.html" class="nav-link"><span>Chatbots</span></a></li>
+                    <li class="nav-item"><a href="Contact.html" class="nav-link"><span>Contact</span></a></li>
                 </ul>
-              </div>
+            </div>
         </div>
     </nav>
-    <br>
-    <br>
-    <style>
-        @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
 
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .container {
-            margin-top: 80px;
-            padding: 40px;
-            background: rgb(44, 43, 43);
-            border-radius: 20px;
-            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            position: relative;
-            z-index: 1;
-        }
-
-        .container::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 150px;
-            height: 150px;
-            background: rgb(85, 91, 81);
-            border-radius: 50%;
-            filter: blur(50px);
-            z-index: -1;
-        }
-
-        .container::after {
-            content: '';
-            position: absolute;
-            bottom: -50px;
-            left: -50px;
-            width: 150px;
-            height: 150px;
-            background: rgb(0, 0, 0);
-            border-radius: 50%;
-            filter: blur(50px);
-            z-index: -1;
-        }
-    </style>
-
-    <div style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 20px; margin-top: 100px;">
+    <!-- Signup Form Container -->
+    <div style="display: flex;  justify-content: center; width: 100%;  ">
         <!-- Login Form -->
-        <div style="width: 400px; padding: 40px; background: rgba(3, 3, 13, 0.7); border-radius: 15px; box-shadow: 0px 0px 20px rgba(16, 0, 161, 0.7); animation: fadeIn 1.5s ease;">
+        <div style="width: 400px; padding: 40px; background: rgba(3, 3, 13, 0.7); border-radius: 15px; box-shadow: 0px 0px 20px rgba(16, 0, 161, 0.7); ">
             <h2 class="text-center" style="color: #fff; margin-bottom: 30px; font-weight: 600;">Login</h2>
 
             <!-- Social Media Login -->
@@ -167,22 +170,46 @@
             from {
                 opacity: 0;
             }
-
             to {
                 opacity: 1;
             }
         }
-
+    
+        /* General Button Styles */
+        button {
+            padding: 10px 20px; /* Added padding for better touch target */
+            border: none; /* Remove default border */
+            border-radius: 5px; /* Rounded corners */
+            color: white; /* Text color */
+            font-size: 16px; /* Base font size */
+            cursor: pointer; /* Change cursor on hover */
+            background: linear-gradient(45deg, #0056b3, #003366); /* Default background */
+            transition: background 0.3s, transform 0.3s; /* Smooth transitions */
+        }
+    
         /* Button Hover Effects */
         button:hover {
             background: linear-gradient(45deg, #0047b3, #002966);
-            transition: background 0.3s;
         }
-
+    
         button:hover i {
             transform: scale(1.1);
-            transition: transform 0.3s;
         }
+    
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            button {
+                font-size: 14px; /* Slightly smaller font size on mobile */
+                padding: 8px 16px; /* Adjust padding for smaller screens */
+            }
+        }
+    
+        @media (max-width: 480px) {
+            button {
+                font-size: 12px; /* Further reduce font size on very small screens */
+                padding: 6px 12px; /* Further reduce padding for mobile */
+            }
+        }   
     </style>
 
     <script type="module">
@@ -257,7 +284,6 @@
 
             const messageDiv = document.getElementById('message');
 
-
             auth.signInWithPopup(provider).then(async (result)=>{
                 const user = result.user;
                 var email = user.email;
@@ -303,15 +329,20 @@
                 messageDiv.innerHTML = `<span style="color: #ff0000;">An error occurred. Please try again later.</span>`; 
             }
 
-
                 
             }).catch((error)=>{
                 console.log(error);
             })
         })
 
-
     </script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

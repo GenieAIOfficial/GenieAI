@@ -3,6 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spider-Man Chatbot</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -24,44 +27,14 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-image: url('images/spiderman-bg.jpg'); /* Spider-Man cityscape background */
+            background-image: url(images/spiderman-bg.jpg); /* Add Spider-Man background here */
             background-size: cover;
             background-position: center;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
-            overflow: hidden;
         }
-
-        .web-effect {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: url('images/spider-web.png') no-repeat center center;
-            background-size: contain;
-            animation: swing 5s infinite ease-in-out;
-        }
-
-        .web-effect:nth-child(2) {
-            top: 20%;
-            left: 10%;
-        }
-
-        .web-effect:nth-child(3) {
-            top: 70%;
-            left: 80%;
-        }
-
-        @keyframes swing {
-            0%, 100% {
-                transform: rotate(0deg);
-            }
-            50% {
-                transform: rotate(15deg);
-            }
-        }
-
         .navbar {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: #301212;
             padding: 15px;
             width: 100%;
             position: fixed;
@@ -69,49 +42,38 @@
             left: 0;
             z-index: 1000;
         }
-
         .navbar-brand {
-            color: #ff4500; /* Spider-Man red */
+            color: #fff;
             font-size: 24px;
             text-transform: uppercase;
             font-weight: bold;
         }
-
-        .navbar-nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
         .navbar-nav a {
-            color: #ff4500;
+            color: #fff;
             text-decoration: none;
             font-size: 18px;
         }
-
         .navbar-nav a:hover {
-            color: #00bfff; /* Spider-Man blue */
+            color: #ffd700;
         }
-
         .chat-container {
             width: 90%;
             max-width: 600px;
-            background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            background: rgba(255, 0, 0, 0.9);
             border-radius: 20px;
             padding: 30px;
-            margin-top: 80px; /* Adjusted for navbar */
+            margin-top: 80px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
             position: relative;
+            overflow: hidden;
         }
-
         .chat-header {
             text-align: center;
             font-size: 36px;
-            color: #ff4500;
+            color: #ffffff;
             margin-bottom: 20px;
             text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
         }
-
         .chat-box {
             height: 400px;
             overflow-y: auto;
@@ -121,57 +83,46 @@
             box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 15px;
         }
-
         .chat-message {
             display: flex;
             align-items: flex-start;
             margin-bottom: 20px;
         }
-
         .chat-message img {
             width: 60px;
             height: 60px;
             border-radius: 50%;
             margin-right: 10px;
         }
-
         .message-content {
             max-width: 75%;
-            background-color: #ff4500; /* Spider-Man red */
+            background-color: #ff0000;
             padding: 15px;
             border-radius: 15px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            color: white;
+            color: black;
             animation: fadeIn 0.5s ease;
         }
-
-        .user-message {
-            justify-content: flex-end;
-        }
-
         .user-message .message-content {
-            background-color: #333;
+            background-color: #3498db;
             color: white;
         }
-
         .chat-input-container {
             display: flex;
             align-items: center;
         }
-
         .chat-input {
             flex-grow: 1;
             padding: 12px;
             border-radius: 25px;
-            border: 2px solid #ff4500;
+            border: 2px solid #ff0000;
             margin-right: 10px;
             font-size: 16px;
             outline: none;
         }
-
         .chat-button {
             padding: 12px 20px;
-            background-color: #ff4500;
+            background-color: #ff0000;
             border: none;
             color: white;
             border-radius: 25px;
@@ -180,11 +131,9 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s;
         }
-
         .chat-button:hover {
-            background-color: #00bfff;
+            background-color: #ff6347;
         }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -194,35 +143,54 @@
                 opacity: 1;
                 transform: scale(1);
             }
+        }  @media (max-width: 768px) {
+            .chat-container {
+                width: 95%;
+                margin-top: 60px; /* Adjust margin to fit the navbar */
+                padding: 20px; /* Reduced padding for mobile */
+            }
+            .chat-header {
+                font-size: 28px; /* Smaller font for mobile */
+            }
+            .chat-input {
+                font-size: 14px; /* Smaller input font */
+            }
+            .chat-button {
+                font-size: 16px; /* Smaller button font */
+            }
+            .navbar-nav {
+                flex-direction: column; /* Stack nav items vertically */
+                gap: 10px; /* Adjust gap for smaller screens */
+            }
+            .navbar-nav a {
+                font-size: 16px; /* Adjust font size for nav links */
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Web effects -->
-    <div class="web-effect"></div>
-    <div class="web-effect"></div>
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="PremiumIndex.html">GENIE</a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
 
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="PremiumIndex.html">GENIE</a>
-	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="PremiumIndex.html" class="nav-link"><span>Home</span></a></li>
-	          <li class="nav-item"><a href="PremiumAbout.html" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="PremiumSubscription.html" class="nav-link"><span>Subscription</span></a></li>
-	          <li class="nav-item"><a href="PremiumChatbot.html" class="nav-link"><span>Chatbots</span></a></li>
-	          <li class="nav-item"><a href="PremiumContact.html" class="nav-link"><span>Contact</span></a></li>
-              <li class="nav-item"><a href="PremiumDashboard.html" class="nav-link"><span>Dashboard</span></a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                    <li class="nav-item"><a href="PremiumIndex.html" class="nav-link"><span>Home</span></a></li>
+                    <li class="nav-item"><a href="PremiumAbout.html" class="nav-link"><span>About</span></a></li>
+                    <li class="nav-item"><a href="PremiumSubscription.html" class="nav-link"><span>Subscription</span></a></li>
+                    <li class="nav-item"><a href="PremiumChatbot.html" class="nav-link"><span>Chatbots</span></a></li>
+                    <li class="nav-item"><a href="PremiumContact.html" class="nav-link"><span>Contact</span></a></li>
+                    <li class="nav-item"><a href="PremiumDashboard.html" class="nav-link"><span>Dashboard</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <!-- Chatbot Container -->
     <div class="chat-container">
@@ -231,7 +199,7 @@
             <!-- Chat messages will be appended here -->
         </div>
         <div class="chat-input-container">
-            <input type="text" id="user-input" class="chat-input" placeholder="Ask Spidey anything..." />
+            <input type="text" id="user-input" class="chat-input" placeholder="Ask Spider-Man anything..." />
             <button class="chat-button" id="send-btn">Send</button>
         </div>
     </div>
@@ -240,12 +208,12 @@
         const chatBox = document.getElementById('chat-box');
         const userInput = document.getElementById('user-input');
         const sendBtn = document.getElementById('send-btn');
-
+        
         function appendMessage(message, sender) {
             const messageElement = document.createElement('div');
             messageElement.classList.add('chat-message');
-
-            if (sender === 'Spidey') {
+        
+            if (sender === 'Spider-Man') {
                 messageElement.innerHTML = `
                     <img src="images/spiderman-icon.jpg" alt="Spider-Man Avatar">
                     <div class="message-content">${message}</div>
@@ -254,51 +222,54 @@
                 messageElement.classList.add('user-message');
                 messageElement.innerHTML = `
                     <div class="message-content">${message}</div>
+                    <img src="images/genie3.jpg" alt="User Avatar">
                 `;
             }
-
+        
             chatBox.appendChild(messageElement);
-            chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to the latest message
+            chatBox.scrollTop = chatBox.scrollHeight;
         }
-
-        // Simulate Spider-Man's response
-        function getSpideyResponse(userMessage) {
-            const spideyResponses = [
-                "With great power comes great responsibility!",
-                "I'm your friendly neighborhood Spider-Man!",
-                "Web-slinging through the city is always fun!",
-                "Need help with something? Just ask!",
-                "I can do this all day... Oh wait, that's Cap's line!"
-            ];
-
-            // Pick a random response for Spider-Man
-            return spideyResponses[Math.floor(Math.random() * spideyResponses.length)];
+        
+        async function getSpiderManResponse(userMessage) {
+            try {
+                const response = await fetch('https://genieai-buenftbhcxg3amhy.southafricanorth-01.azurewebsites.net/chatSpiderMan', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: userMessage })
+                });
+        
+                const data = await response.json();
+        
+                if (data.reply) {
+                    return data.reply;
+                } else {
+                    return "Sorry, Spider-Man's response is not available.";
+                }
+            } catch (error) {
+                console.error('Error fetching Spider-Man response:', error);
+                return "Oops! Looks like Spider-Man is busy. Try again later!";
+            }
         }
-
-        sendBtn.addEventListener('click', () => {
+        
+        sendBtn.addEventListener('click', async function() {
             const userMessage = userInput.value.trim();
+        
             if (userMessage) {
                 appendMessage(userMessage, 'User');
-                userInput.value = ''; // Clear input field
-
-                // Simulate a slight delay for Spider-Man's response
-                setTimeout(() => {
-                    const spideyResponse = getSpideyResponse(userMessage);
-                    appendMessage(spideyResponse, 'Spidey');
-                }, 1000);
+                userInput.value = '';
+        
+                const spiderManReply = await getSpiderManResponse(userMessage);
+                appendMessage(spiderManReply, 'Spider-Man');
             }
         });
-
-        // Enable pressing Enter key to send the message
-        userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
+        
+        userInput.addEventListener('keypress', async function(event) {
+            if (event.key === 'Enter') {
                 sendBtn.click();
             }
         });
     </script>
-
 </body>
-
 </html>
-
-

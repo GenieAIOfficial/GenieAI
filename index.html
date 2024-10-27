@@ -28,10 +28,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.html">GENIE</a>
-	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-
+		  <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="oi oi-menu"></span> Menu
+		</button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav nav ml-auto">
 	          <li class="nav-item"><a href="index.html" class="nav-link"><span>Home</span></a></li>
@@ -214,6 +213,51 @@
   </section>
   
   <style>
+	 /* General Styles for the Button */
+	 .navbar-toggler {
+        background-color: #0056b3; /* Button background color */
+        color: white; /* Text color */
+        border: none; /* Remove default border */
+        border-radius: 5px; /* Rounded corners */
+        padding: 10px 15px; /* Padding for the button */
+        font-size: 16px; /* Base font size */
+        cursor: pointer; /* Change cursor on hover */
+        transition: background 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+        display: flex; /* Flex for alignment */
+        align-items: center; /* Center items vertically */
+    }
+
+    /* Hover Effect */
+    .navbar-toggler:hover {
+        background-color: #0047b3; /* Darker shade on hover */
+    }
+
+    /* Icon Styles */
+    .navbar-toggler .oi {
+        margin-right: 5px; /* Space between icon and text */
+        transition: transform 0.3s ease; /* Smooth icon scale effect */
+    }
+
+    /* Hover Effect for Icon */
+    .navbar-toggler:hover .oi {
+        transform: scale(1.1); /* Slightly increase icon size on hover */
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 768px) {
+        .navbar-toggler {
+            font-size: 14px; /* Smaller font size on mobile */
+            padding: 8px 12px; /* Adjust padding */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .navbar-toggler {
+            font-size: 12px; /* Further reduce font size for small screens */
+            padding: 6px 10px; /* Further reduce padding */
+        }
+    }
+    /* Base Styles */
     .highlight {
         color: #ffcc00;
         font-weight: bold;
@@ -225,6 +269,7 @@
         font-weight: 700;
     }
 
+    /* Card Styles */
     .plan-card, .chatbot-card {
         padding: 30px;
         border-radius: 15px;
@@ -242,6 +287,7 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
 
+    /* Animation Styles */
     .fadeInLeft { animation: fadeInLeft 1s forwards; }
     .fadeInRight { animation: fadeInRight 1s forwards; }
 
@@ -255,7 +301,7 @@
         to { opacity: 1; transform: translateX(0); }
     }
 
-    /* Mobile Scrolling Fixes */
+    /* Layout Fixes for Mobile and Laptop */
     .hero {
         position: relative;
         overflow: visible;
@@ -284,7 +330,31 @@
         padding: 30px 0;
     }
 
+    /* Responsive Styles for Mobile and Tablet */
+    @media (max-width: 1024px) {
+        .big-2 {
+            font-size: 40px; /* Reduce for tablets */
+        }
+
+        .plan-card, .chatbot-card {
+            padding: 20px; /* Reduce padding for tablets */
+        }
+    }
+
     @media (max-width: 768px) {
+        /* Adjust sizes for mobile */
+        .big-2 {
+            font-size: 32px; /* Reduce for mobile */
+        }
+
+        .plan-card, .chatbot-card {
+            padding: 15px; /* Reduce padding for mobile */
+        }
+
+        .highlight {
+            font-size: 1rem; /* Adjust text size for mobile */
+        }
+
         .hero, .slider-item, .js-fullheight {
             height: auto !important;
             min-height: 100vh;
@@ -293,17 +363,19 @@
         .one-third {
             height: 50vh !important;
         }
-        
+
         .one-forth {
             padding: 30px 15px;
         }
     }
 
+    /* Overlay Effect */
     .overlay {
         position: absolute;
         pointer-events: none;
     }
 
+    /* Bounce Animations */
     @keyframes bounceInDown {
         from, 20%, 40%, 60%, 80%, to { animation-timing-function: ease-in-out; }
         0% { opacity: 0; transform: translateY(-100%); }
@@ -317,6 +389,7 @@
         60% { opacity: 1; transform: translateY(-10px); }
         to { transform: translateY(0); }
     }
+
 </style>
   	
 	  <section class="ftco-section ftco-project" id="projects-section">
@@ -508,7 +581,7 @@
         <div class="row">
           <div class="col-md-12 text-center">
 
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. 
   Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
@@ -521,7 +594,8 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
