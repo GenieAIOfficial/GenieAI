@@ -131,7 +131,7 @@
             <form id="signupForm">
                 <div class="form-group">
                     <label for="name" style="color: #aaa;">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter your name" required style="background-color: rgba(255, 255, 255, 0.1); color: #fff; border: none; padding: 12px; border-radius: 5px;">
+                    <input type="text" class="form-control" id="name" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" placeholder="Enter your name" required style="background-color: rgba(255, 255, 255, 0.1); color: #fff; border: none; padding: 12px; border-radius: 5px;">
                 </div>
                 <div class="form-group">
                     <label for="email" style="color: #aaa;">Email address</label>
@@ -151,9 +151,10 @@
                 </div>
                
             
-                <div id="message" style="margin-top: 20px; color: #fff;"></div>
+                
             
                 <div class="login-message" style="margin-top: 20px; color: #aaa; text-align: center;">
+                    <div id="message" style="margin-top: 20px; color: #fff; max-width: 300px;"></div>
                     <p>Already have an account? <a href="LoginPage.html" style="color: #00f; text-decoration: none;">Login</a></p>
                 </div>
             </form>
@@ -171,6 +172,11 @@
             const loader = document.querySelector('.loader');
             loader.style.display = 'none';
         }
+
+    
+        function isValidPassword(password) {
+            return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password);
+        }   
 
 
         // Toggle password visibility
@@ -197,6 +203,29 @@
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
+
+            if (!name || !email || !password) {
+                messageDiv.innerHTML = `<span style="color: #ff0000;">Please fill in all fields</span>`;
+                hideLoader();
+                return;
+            }
+
+
+            if (!isValidPassword(password)) {
+                messageDiv.innerHTML = `<p style="color: #ff0000;">Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number</p>`;
+                hideLoader();
+                return;
+            }
+
+            
+
+
+
+
+
+            // messageDiv.innerHTML = `<span style="color: #ff0000;">User with that email already exists</span>`;
+
+
 
             
 
