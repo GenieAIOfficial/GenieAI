@@ -212,7 +212,7 @@
             <!-- Chat messages will be appended here -->
         </div>
         <div class="chat-input-container">
-            <input type="text" id="user-input" class="chat-input" placeholder="Ask GenieAI anything..." />
+            <input type="text" id="user-input" class="chat-input" placeholder="Ask Deadpool anything..." />
             <button class="chat-button" id="send-btn">Send</button>
         </div>
     </div>
@@ -226,9 +226,9 @@
             const messageElement = document.createElement('div');
             messageElement.classList.add('chat-message');
     
-            if (sender === 'Genie') {
+            if (sender === 'Deadpool') {
                 messageElement.innerHTML = `
-                    <img src="images/deadpool icon.jpg" alt="Genie Avatar">
+                    <img src="images/deadpool icon.jpg" alt="Deadpool Avatar">
                     <div class="message-content">${message}</div>
                 `;
             } else {
