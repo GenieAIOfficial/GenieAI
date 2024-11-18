@@ -44,32 +44,6 @@
             left: 0;
             z-index: 1000;
         }
-
-        @media (max-width: 768px) {
-            .chat-container {
-                width: 95%;
-                margin-top: 60px; /* Adjust margin to fit the navbar */
-                padding: 20px; /* Reduced padding for mobile */
-            }
-            .chat-header {
-                font-size: 28px; /* Smaller font for mobile */
-            }
-            .chat-input {
-                font-size: 14px; /* Smaller input font */
-            }
-            .chat-button {
-                font-size: 16px; /* Smaller button font */
-            }
-            .navbar-nav {
-                flex-direction: column; /* Stack nav items vertically */
-                gap: 10px; /* Adjust gap for smaller screens */
-            }
-            .navbar-nav a {
-                font-size: 16px; /* Adjust font size for nav links */
-            }
-        }
-    
-
         .navbar-brand {
             color: #00ff00; /* Rick and Morty green */
             font-size: 24px;
@@ -185,7 +159,29 @@
         .chat-button:hover {
             background-color: #ff4500;
         }
-
+ @media (max-width: 768px) {
+            .chat-container {
+                width: 95%;
+                margin-top: 60px; /* Adjust margin to fit the navbar */
+                padding: 20px; /* Reduced padding for mobile */
+            }
+            .chat-header {
+                font-size: 28px; /* Smaller font for mobile */
+            }
+            .chat-input {
+                font-size: 14px; /* Smaller input font */
+            }
+            .chat-button {
+                font-size: 16px; /* Smaller button font */
+            }
+            .navbar-nav {
+                flex-direction: column; /* Stack nav items vertically */
+                gap: 10px; /* Adjust gap for smaller screens */
+            }
+            .navbar-nav a {
+                font-size: 16px; /* Adjust font size for nav links */
+            }
+        }
         @keyframes fadeIn {
             from {
                 opacity: 0;
