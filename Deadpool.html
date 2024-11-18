@@ -243,9 +243,9 @@
             chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
         }
     
-        async function getGenieResponse(userMessage) {
+        async function getDeadpoolResponse(userMessage) {
             try {
-                const response = await fetch('https://genieai-buenftbhcxg3amhy.southafricanorth-01.azurewebsites.net/chatGenie', {
+                const response = await fetch('https://genieai-buenftbhcxg3amhy.southafricanorth-01.azurewebsites.net/chatDeadpool', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -258,11 +258,11 @@
                 if (data.reply) {
                     return data.reply;
                 } else {
-                    return "Oops! Genie is busy right now.";
+                    return "Oops! Deadpool is busy right now.";
                 }
             } catch (error) {
-                console.error('Error fetching Genie response:', error);
-                return "Looks like Genie is taking a break. Try again later!";
+                console.error('Error fetching Deadpool response:', error);
+                return "Looks like Deadpool is taking a break. Try again later!";
             }
         }
     
@@ -270,10 +270,10 @@
             const userMessage = userInput.value;
             if (userMessage.trim() !== "") {
                 appendMessage(userMessage, "You");
-                const genieReply = await getGenieResponse(userMessage);
+                const DeadpoolReply = await getDeadpoolResponse(userMessage);
                 setTimeout(() => {
-                    appendMessage(genieReply, "Genie");
-                }, 1000); // Simulates a delay for Genie AI's response
+                    appendMessage(DeadpoolReply, "Deadpool");
+                }, 1000); // Simulates a delay for Deadpool's response
                 userInput.value = "";
             }
         });
