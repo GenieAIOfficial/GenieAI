@@ -147,11 +147,194 @@
 	      </div>
 	    </div>
 	  </nav>
-    <div class="categories-container">
-        <a href="Deadpool.html" class="category-card">
+      <div class="categories-container">
+        <div class="category-card" onclick="showAgeVerification()">
             <img src="images/Deadpool.jpg" alt="Deadpool">
             <div class="category-overlay">Deadpool</div>
-        </a>
+        </div>
+    </div>
+    
+    <!-- Age Verification Popup -->
+    <div id="ageVerificationPopup" class="popup">
+        <div class="popup-content">
+            <h2>Age Verification</h2>
+            <p>Please enter your age:</p>
+            <input type="number" id="ageInput" placeholder="Enter your age" min="0">
+            <div class="popup-buttons">
+                <button onclick="verifyAge()">Submit</button>
+                <button onclick="closePopup()">Cancel</button>
+            </div>
+            <p id="errorMessage" class="error-message"></p>
+        </div>
+    </div>
+    <style>
+        /* General styling */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Categories styling */
+.categories-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.category-card {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.category-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Popup styling */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s;
+}
+
+.popup-content h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.popup-content p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popup-buttons button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.popup-buttons button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+    </style>
+    <script>
+function showAgeVerification() {
+    const popup = document.getElementById('ageVerificationPopup');
+    popup.style.display = 'flex';
+    clearErrors();
+}
+
+function closePopup() {
+    const popup = document.getElementById('ageVerificationPopup');
+    popup.style.display = 'none';
+    clearErrors();
+    document.getElementById('ageInput').value = ''; // Clear the input field
+}
+
+function clearErrors() {
+    const errorMessage = document.getElementById('errorMessage');
+    errorMessage.innerText = '';
+}
+
+function verifyAge() {
+    const ageInput = document.getElementById('ageInput').value.trim();
+    const errorMessage = document.getElementById('errorMessage');
+    const age = parseInt(ageInput, 10);
+
+    clearErrors();
+
+    // Validation checks
+    if (ageInput === '') {
+        errorMessage.innerText = 'Age is required. Please enter your age.';
+        return;
+    }
+
+    if (isNaN(age) || age <= 0) {
+        errorMessage.innerText = 'Please enter a valid number for age.';
+        return;
+    }
+    if (isNaN(age) || age >= 120) {
+        errorMessage.innerText = 'Please enter a valid number for age.';
+        return;
+    }
+
+    if (age >= 18) {
+        window.location.href = 'Deadpool.html';
+    } else if (age < 18) {
+        errorMessage.innerText = 'Age verification not permitted.';
+        setTimeout(() => {
+            window.location.href = 'Marvel.html';
+        }, 2000); // 2-second delay for user to read the message
+    } else {
+        errorMessage.innerText = 'An unexpected error occurred. Please try again.';
+    }
+}
+
+    </script>
+    
         <a href="Spiderman.html" class="category-card">
             <img src="images/spiderman.jpg" alt="Spider-Man ">
             <div class="category-overlay">Spider-Man</div>
